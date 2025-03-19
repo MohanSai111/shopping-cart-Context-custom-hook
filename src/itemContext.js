@@ -10,6 +10,12 @@ function useValue() {
 function CustomItemContext({ children }) {
   const [total, setTotal] = useState(0);
   const [item, setItem] = useState(0);
+ 
+
+  const clear =()=>{
+     setTotal(0);
+     setItem(0);
+  }
 
   const handleAdd = (price) => {
     setTotal(total + price);
@@ -25,7 +31,7 @@ function CustomItemContext({ children }) {
   };
 
   return (
-    <itemContext.Provider value={{ total, item, handleAdd, handleRemove }}>
+    <itemContext.Provider value={{ total, item, handleAdd, handleRemove,clear }}>
       {children}
     </itemContext.Provider>
   );
